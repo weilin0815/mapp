@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Leaflet</title>
+
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>	
+
+	<!-- Make sure you put this AFTER Leaflet's CSS -->
+ 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   	integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   	crossorigin=""></script>
+
+   	<style type="text/css">
+   		#map { height: 900px; }
+   	</style>
+
+
+</head>
+<body>
+	
+ <div id="map"></div>
+
+<script type="text/javascript">
+	var map = L.map('map').setView([24.225725, 120.577192], 13);
+
+	
+var OpenStreetMap_Mapnik = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+	maxZoom: 19,
+	attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+
+
+
+
+
+
+var popup = L.popup()
+    .setLatLng([24.225871172384362, 120.57712692357507])
+    .setContent("靜宜大學")
+    .openOn(map);
+
+    function onMapClick(e) {
+    alert("You clicked the map at " + e.latlng);
+}
+
+map.on('click', onMapClick);
+
+
+var popup = L.popup();
+
+function onMapClick(e) {
+    popup
+        .setLatLng(e.latlng)
+        .setContent("You clicked the map at " + e.latlng.toString())
+        .openOn(map);
+}
+
+map.on('click', onMapClick);
+
+
+var LeafIcon = L.Icon.extend({
+    options: {
+        iconSize:     [50, 35],
+        iconAnchor:   [50, 50],
+        popupAnchor:  [50, 50]
+    }
+});
+
+
+L.marker([24.225871172384362, 120.57712692357507], {icon: new LeafIcon({iconUrl: 'https://upload.wikimedia.org/wikipedia/zh/5/54/PU_Logo.png'})}).addTo(map).bindPopup("靜宜大學");
+
+
+L.marker([42.546245,1.601554],{icon:new LeafIcon({iconUrl:'images/ad.png'})}).addTo(map).bindPopup('Andorra');
+L.marker([23.424076,53.847818],{icon:new LeafIcon({iconUrl:'images/ae.png'})}).addTo(map).bindPopup('United Arab Emirates');
+L.marker([33.93911,67.709953],{icon:new LeafIcon({iconUrl:'images/af.png'})}).addTo(map).bindPopup('Afghanistan');
+L.marker([17.060816,-61.796428],{icon:new LeafIcon({iconUrl:'images/ag.png'})}).addTo(map).bindPopup('Antigua and Barbuda');
+L.marker([18.220554,-63.068615],{icon:new LeafIcon({iconUrl:'images/ai.png'})}).addTo(map).bindPopup('Anguilla');
+L.marker([41.153332,20.168331],{icon:new LeafIcon({iconUrl:'images/al.png'})}).addTo(map).bindPopup('Albania');
+L.marker([40.069099,45.038189],{icon:new LeafIcon({iconUrl:'images/am.png'})}).addTo(map).bindPopup('Armenia');
+L.marker([12.226079,-69.060087],{icon:new LeafIcon({iconUrl:'images/an.png'})}).addTo(map).bindPopup('Netherlands Antilles');
+L.marker([-11.202692,17.873887],{icon:new LeafIcon({iconUrl:'images/ao.png'})}).addTo(map).bindPopup('Angola');
+L.marker([-75.250973,-0.071389],{icon:new LeafIcon({iconUrl:'images/aq.png'})}).addTo(map).bindPopup('Antarctica');
+L.marker([-38.416097,-63.616672],{icon:new LeafIcon({iconUrl:'images/ar.png'})}).addTo(map).bindPopup('Argentina');
+L.marker([-14.270972,-170.132217],{icon:new LeafIcon({iconUrl:'images/as.png'})}).addTo(map).bindPopup('American Samoa');
+L.marker([47.516231,14.550072],{icon:new LeafIcon({iconUrl:'images/at.png'})}).addTo(map).bindPopup('Austria');
+L.marker([-25.274398,133.775136],{icon:new LeafIcon({iconUrl:'images/au.png'})}).addTo(map).bindPopup('Australia');
+L.marker([12.52111,-69.968338],{icon:new LeafIcon({iconUrl:'images/aw.png'})}).addTo(map).bindPopup('Aruba');
+L.marker([40.143105,47.576927],{icon:new LeafIcon({iconUrl:'images/az.png'})}).addTo(map).bindPopup('Azerbaijan');
+L.marker([43.915886,17.679076],{icon:new LeafIcon({iconUrl:'images/ba.png'})}).addTo(map).bindPopup('Bosnia and Herzegovina');
+L.marker([13.193887,-59.543198],{icon:new LeafIcon({iconUrl:'images/bb.png'})}).addTo(map).bindPopup('Barbados');
+L.marker([23.684994,90.356331],{icon:new LeafIcon({iconUrl:'images/bd.png'})}).addTo(map).bindPopup('Bangladesh');
+L.marker([50.503887,4.469936],{icon:new LeafIcon({iconUrl:'images/be.png'})}).addTo(map).bindPopup('Belgium');
+L.marker([12.238333,-1.561593],{icon:new LeafIcon({iconUrl:'images/bf.png'})}).addTo(map).bindPopup('Burkina Faso');
+L.marker([42.733883,25.48583],{icon:new LeafIcon({iconUrl:'images/bg.png'})}).addTo(map).bindPopup('Bulgaria');
+L.marker([25.930414,50.637772],{icon:new LeafIcon({iconUrl:'images/bh.png'})}).addTo(map).bindPopup('Bahrain');
+L.marker([-3.373056,29.918886],{icon:new LeafIcon({iconUrl:'images/bi.png'})}).addTo(map).bindPopup('Burundi');
+L.marker([9.30769,2.315834],{icon:new LeafIcon({iconUrl:'images/bj.png'})}).addTo(map).bindPopup('Benin');
+L.marker([32.321384,-64.75737],{icon:new LeafIcon({iconUrl:'images/bm.png'})}).addTo(map).bindPopup('Bermuda');
+L.marker([4.535277,114.727669],{icon:new LeafIcon({iconUrl:'images/bn.png'})}).addTo(map).bindPopup('Brunei');
+L.marker([-16.290154,-63.588653],{icon:new LeafIcon({iconUrl:'images/bo.png'})}).addTo(map).bindPopup('Bolivia');
+L.marker([-14.235004,-51.92528],{icon:new LeafIcon({iconUrl:'images/br.png'})}).addTo(map).bindPopup('Brazil');
+L.marker([25.03428,-77.39628],{icon:new LeafIcon({iconUrl:'images/bs.png'})}).addTo(map).bindPopup('Bahamas');
+L.marker([27.514162,90.433601],{icon:new LeafIcon({iconUrl:'images/bt.png'})}).addTo(map).bindPopup('Bhutan');
+L.marker([-54.423199,3.413194],{icon:new LeafIcon({iconUrl:'images/bv.png'})}).addTo(map).bindPopup('Bouvet Island');
+L.marker([-22.328474,24.684866],{icon:new LeafIcon({iconUrl:'images/bw.png'})}).addTo(map).bindPopup('Botswana');
+L.marker([53.709807,27.953389],{icon:new LeafIcon({iconUrl:'images/by.png'})}).addTo(map).bindPopup('Belarus');
+L.marker([17.189877,-88.49765],{icon:new LeafIcon({iconUrl:'images/bz.png'})}).addTo(map).bindPopup('Belize');
+L.marker([56.130366,-106.346771],{icon:new LeafIcon({iconUrl:'images/ca.png'})}).addTo(map).bindPopup('Canada');
+L.marker([-12.164165,96.870956],{icon:new LeafIcon({iconUrl:'images/cc.png'})}).addTo(map).bindPopup('Cocos [Keeling] Islands');
+L.marker([-4.038333,21.758664],{icon:new LeafIcon({iconUrl:'images/cd.png'})}).addTo(map).bindPopup('Congo [DRC]');
+L.marker([6.611111,20.939444],{icon:new LeafIcon({iconUrl:'images/cf.png'})}).addTo(map).bindPopup('Central African Republic');
+L.marker([-0.228021,15.827659],{icon:new LeafIcon({iconUrl:'images/cg.png'})}).addTo(map).bindPopup('Congo [Republic]');
+L.marker([46.818188,8.227512],{icon:new LeafIcon({iconUrl:'images/ch.png'})}).addTo(map).bindPopup('Switzerland');
+L.marker([7.539989,-5.54708],{icon:new LeafIcon({iconUrl:'images/ci.png'})}).addTo(map).bindPopup("Côte d'Ivoire");
+L.marker([-21.236736,-159.777671],{icon:new LeafIcon({iconUrl:'images/ck.png'})}).addTo(map).bindPopup('Cook Islands');
+L.marker([-35.675147,-71.542969],{icon:new LeafIcon({iconUrl:'images/cl.png'})}).addTo(map).bindPopup('Chile');
+L.marker([7.369722,12.354722],{icon:new LeafIcon({iconUrl:'images/cm.png'})}).addTo(map).bindPopup('Cameroon');
+L.marker([35.86166,104.195397],{icon:new LeafIcon({iconUrl:'images/cn.png'})}).addTo(map).bindPopup('China');
+L.marker([4.570868,-74.297333],{icon:new LeafIcon({iconUrl:'images/co.png'})}).addTo(map).bindPopup('Colombia');
+L.marker([9.748917,-83.753428],{icon:new LeafIcon({iconUrl:'images/cr.png'})}).addTo(map).bindPopup('Costa Rica');
+L.marker([21.521757,-77.781167],{icon:new LeafIcon({iconUrl:'images/cu.png'})}).addTo(map).bindPopup('Cuba');
+L.marker([16.002082,-24.013197],{icon:new LeafIcon({iconUrl:'images/cv.png'})}).addTo(map).bindPopup('Cape Verde');
+L.marker([-10.447525,105.690449],{icon:new LeafIcon({iconUrl:'images/cx.png'})}).addTo(map).bindPopup('Christmas Island');
+L.marker([35.126413,33.429859],{icon:new LeafIcon({iconUrl:'images/cy.png'})}).addTo(map).bindPopup('Cyprus');
+L.marker([49.817492,15.472962],{icon:new LeafIcon({iconUrl:'images/cz.png'})}).addTo(map).bindPopup('Czech Republic');
+L.marker([51.165691,10.451526],{icon:new LeafIcon({iconUrl:'images/de.png'})}).addTo(map).bindPopup('Germany');
+L.marker([11.825138,42.590275],{icon:new LeafIcon({iconUrl:'images/dj.png'})}).addTo(map).bindPopup('Djibouti');
+L.marker([56.26392,9.501785],{icon:new LeafIcon({iconUrl:'images/dk.png'})}).addTo(map).bindPopup('Denmark');
+L.marker([15.414999,-61.370976],{icon:new LeafIcon({iconUrl:'images/dm.png'})}).addTo(map).bindPopup('Dominica');
+L.marker([18.735693,-70.162651],{icon:new LeafIcon({iconUrl:'images/do.png'})}).addTo(map).bindPopup('Dominican Republic');
+L.marker([28.033886,1.659626],{icon:new LeafIcon({iconUrl:'images/dz.png'})}).addTo(map).bindPopup('Algeria');
+L.marker([-1.831239,-78.183406],{icon:new LeafIcon({iconUrl:'images/ec.png'})}).addTo(map).bindPopup('Ecuador');
+L.marker([58.595272,25.013607],{icon:new LeafIcon({iconUrl:'images/ee.png'})}).addTo(map).bindPopup('Estonia');
+L.marker([26.820553,30.802498],{icon:new LeafIcon({iconUrl:'images/eg.png'})}).addTo(map).bindPopup('Egypt');
+L.marker([24.215527,-12.885834],{icon:new LeafIcon({iconUrl:'images/eh.png'})}).addTo(map).bindPopup('Western Sahara');
+L.marker([15.179384,39.782334],{icon:new LeafIcon({iconUrl:'images/er.png'})}).addTo(map).bindPopup('Eritrea');
+L.marker([40.463667,-3.74922],{icon:new LeafIcon({iconUrl:'images/es.png'})}).addTo(map).bindPopup('Spain');
+L.marker([9.145,40.489673],{icon:new LeafIcon({iconUrl:'images/et.png'})}).addTo(map).bindPopup('Ethiopia');
+L.marker([61.92411,25.748151],{icon:new LeafIcon({iconUrl:'images/fi.png'})}).addTo(map).bindPopup('Finland');
+L.marker([-16.578193,179.414413],{icon:new LeafIcon({iconUrl:'images/fj.png'})}).addTo(map).bindPopup('Fiji');
+L.marker([-51.796253,-59.523613],{icon:new LeafIcon({iconUrl:'images/fk.png'})}).addTo(map).bindPopup('Falkland Islands [Islas Malvinas]');
+L.marker([7.425554,150.550812],{icon:new LeafIcon({iconUrl:'images/fm.png'})}).addTo(map).bindPopup('Micronesia');
+L.marker([61.892635,-6.911806],{icon:new LeafIcon({iconUrl:'images/fo.png'})}).addTo(map).bindPopup('Faroe Islands');
+L.marker([46.227638,2.213749],{icon:new LeafIcon({iconUrl:'images/fr.png'})}).addTo(map).bindPopup('France');
+L.marker([-0.803689,11.609444],{icon:new LeafIcon({iconUrl:'images/ga.png'})}).addTo(map).bindPopup('Gabon');
+L.marker([55.378051,-3.435973],{icon:new LeafIcon({iconUrl:'images/gb.png'})}).addTo(map).bindPopup('United Kingdom');
+L.marker([12.262776,-61.604171],{icon:new LeafIcon({iconUrl:'images/gd.png'})}).addTo(map).bindPopup('Grenada');
+L.marker([42.315407,43.356892],{icon:new LeafIcon({iconUrl:'images/ge.png'})}).addTo(map).bindPopup('Georgia');
+L.marker([3.933889,-53.125782],{icon:new LeafIcon({iconUrl:'images/gf.png'})}).addTo(map).bindPopup('French Guiana');
+L.marker([49.465691,-2.585278],{icon:new LeafIcon({iconUrl:'images/gg.png'})}).addTo(map).bindPopup('Guernsey');
+L.marker([7.946527,-1.023194],{icon:new LeafIcon({iconUrl:'images/gh.png'})}).addTo(map).bindPopup('Ghana');
+L.marker([36.137741,-5.345374],{icon:new LeafIcon({iconUrl:'images/gi.png'})}).addTo(map).bindPopup('Gibraltar');
+L.marker([71.706936,-42.604303],{icon:new LeafIcon({iconUrl:'images/gl.png'})}).addTo(map).bindPopup('Greenland');
+L.marker([13.443182,-15.310139],{icon:new LeafIcon({iconUrl:'images/gm.png'})}).addTo(map).bindPopup('Gambia');
+L.marker([9.945587,-9.696645],{icon:new LeafIcon({iconUrl:'images/gn.png'})}).addTo(map).bindPopup('Guinea');
+L.marker([16.995971,-62.067641],{icon:new LeafIcon({iconUrl:'images/gp.png'})}).addTo(map).bindPopup('Guadeloupe');
+L.marker([1.650801,10.267895],{icon:new LeafIcon({iconUrl:'images/gq.png'})}).addTo(map).bindPopup('Equatorial Guinea');
+L.marker([39.074208,21.824312],{icon:new LeafIcon({iconUrl:'images/gr.png'})}).addTo(map).bindPopup('Greece');
+L.marker([-54.429579,-36.587909],{icon:new LeafIcon({iconUrl:'images/gs.png'})}).addTo(map).bindPopup('South Georgia and the South Sandwich Islands');
+L.marker([15.783471,-90.230759],{icon:new LeafIcon({iconUrl:'images/gt.png'})}).addTo(map).bindPopup('Guatemala');
+L.marker([13.444304,144.793731],{icon:new LeafIcon({iconUrl:'images/gu.png'})}).addTo(map).bindPopup('Guam');
+L.marker([11.803749,-15.180413],{icon:new LeafIcon({iconUrl:'images/gw.png'})}).addTo(map).bindPopup('Guinea-Bissau');
+L.marker([4.860416,-58.93018],{icon:new LeafIcon({iconUrl:'images/gy.png'})}).addTo(map).bindPopup('Guyana');
+L.marker([31.354676,34.308825],{icon:new LeafIcon({iconUrl:'images/gz.png'})}).addTo(map).bindPopup('Gaza Strip');
+L.marker([22.396428,114.109497],{icon:new LeafIcon({iconUrl:'images/hk.png'})}).addTo(map).bindPopup('Hong Kong');
+L.marker([-53.08181,73.504158],{icon:new LeafIcon({iconUrl:'images/hm.png'})}).addTo(map).bindPopup('Heard Island and McDonald Islands');
+L.marker([15.199999,-86.241905],{icon:new LeafIcon({iconUrl:'images/hn.png'})}).addTo(map).bindPopup('Honduras');
+L.marker([45.1,15.2],{icon:new LeafIcon({iconUrl:'images/hr.png'})}).addTo(map).bindPopup('Croatia');
+L.marker([18.971187,-72.285215],{icon:new LeafIcon({iconUrl:'images/ht.png'})}).addTo(map).bindPopup('Haiti');
+L.marker([47.162494,19.503304],{icon:new LeafIcon({iconUrl:'images/hu.png'})}).addTo(map).bindPopup('Hungary');
+L.marker([-0.789275,113.921327],{icon:new LeafIcon({iconUrl:'images/id.png'})}).addTo(map).bindPopup('Indonesia');
+L.marker([53.41291,-8.24389],{icon:new LeafIcon({iconUrl:'images/ie.png'})}).addTo(map).bindPopup('Ireland');
+L.marker([31.046051,34.851612],{icon:new LeafIcon({iconUrl:'images/il.png'})}).addTo(map).bindPopup('Israel');
+L.marker([54.236107,-4.548056],{icon:new LeafIcon({iconUrl:'images/im.png'})}).addTo(map).bindPopup('Isle of Man');
+L.marker([20.593684,78.96288],{icon:new LeafIcon({iconUrl:'images/in.png'})}).addTo(map).bindPopup('India');
+L.marker([-6.343194,71.876519],{icon:new LeafIcon({iconUrl:'images/io.png'})}).addTo(map).bindPopup('British Indian Ocean Territory');
+L.marker([33.223191,43.679291],{icon:new LeafIcon({iconUrl:'images/iq.png'})}).addTo(map).bindPopup('Iraq');
+L.marker([32.427908,53.688046],{icon:new LeafIcon({iconUrl:'images/ir.png'})}).addTo(map).bindPopup('Iran');
+L.marker([64.963051,-19.020835],{icon:new LeafIcon({iconUrl:'images/is.png'})}).addTo(map).bindPopup('Iceland');
+L.marker([41.87194,12.56738],{icon:new LeafIcon({iconUrl:'images/it.png'})}).addTo(map).bindPopup('Italy');
+L.marker([49.214439,-2.13125],{icon:new LeafIcon({iconUrl:'images/je.png'})}).addTo(map).bindPopup('Jersey');
+L.marker([18.109581,-77.297508],{icon:new LeafIcon({iconUrl:'images/jm.png'})}).addTo(map).bindPopup('Jamaica');
+L.marker([30.585164,36.238414],{icon:new LeafIcon({iconUrl:'images/jo.png'})}).addTo(map).bindPopup('Jordan');
+L.marker([36.204824,138.252924],{icon:new LeafIcon({iconUrl:'images/jp.png'})}).addTo(map).bindPopup('Japan');
+L.marker([-0.023559,37.906193],{icon:new LeafIcon({iconUrl:'images/ke.png'})}).addTo(map).bindPopup('Kenya');
+L.marker([41.20438,74.766098],{icon:new LeafIcon({iconUrl:'images/kg.png'})}).addTo(map).bindPopup('Kyrgyzstan');
+L.marker([12.565679,104.990963],{icon:new LeafIcon({iconUrl:'images/kh.png'})}).addTo(map).bindPopup('Cambodia');
+L.marker([-3.370417,-168.734039],{icon:new LeafIcon({iconUrl:'images/ki.png'})}).addTo(map).bindPopup('Kiribati');
+L.marker([-11.875001,43.872219],{icon:new LeafIcon({iconUrl:'images/km.png'})}).addTo(map).bindPopup('Comoros');
+L.marker([17.357822,-62.782998],{icon:new LeafIcon({iconUrl:'images/kn.png'})}).addTo(map).bindPopup('Saint Kitts and Nevis');
+L.marker([40.339852,127.510093],{icon:new LeafIcon({iconUrl:'images/kp.png'})}).addTo(map).bindPopup('North Korea');
+L.marker([35.907757,127.766922],{icon:new LeafIcon({iconUrl:'images/kr.png'})}).addTo(map).bindPopup('South Korea');
+L.marker([29.31166,47.481766],{icon:new LeafIcon({iconUrl:'images/kw.png'})}).addTo(map).bindPopup('Kuwait');
+L.marker([19.513469,-80.566956],{icon:new LeafIcon({iconUrl:'images/ky.png'})}).addTo(map).bindPopup('Cayman Islands');
+L.marker([48.019573,66.923684],{icon:new LeafIcon({iconUrl:'images/kz.png'})}).addTo(map).bindPopup('Kazakhstan');
+L.marker([19.85627,102.495496],{icon:new LeafIcon({iconUrl:'images/la.png'})}).addTo(map).bindPopup('Laos');
+L.marker([33.854721,35.862285],{icon:new LeafIcon({iconUrl:'images/lb.png'})}).addTo(map).bindPopup('Lebanon');
+L.marker([13.909444,-60.978893],{icon:new LeafIcon({iconUrl:'images/lc.png'})}).addTo(map).bindPopup('Saint Lucia');
+L.marker([47.166,9.555373],{icon:new LeafIcon({iconUrl:'images/li.png'})}).addTo(map).bindPopup('Liechtenstein');
+L.marker([7.873054,80.771797],{icon:new LeafIcon({iconUrl:'images/lk.png'})}).addTo(map).bindPopup('Sri Lanka');
+L.marker([6.428055,-9.429499],{icon:new LeafIcon({iconUrl:'images/lr.png'})}).addTo(map).bindPopup('Liberia');
+L.marker([-29.609988,28.233608],{icon:new LeafIcon({iconUrl:'images/ls.png'})}).addTo(map).bindPopup('Lesotho');
+L.marker([55.169438,23.881275],{icon:new LeafIcon({iconUrl:'images/lt.png'})}).addTo(map).bindPopup('Lithuania');
+L.marker([49.815273,6.129583],{icon:new LeafIcon({iconUrl:'images/lu.png'})}).addTo(map).bindPopup('Luxembourg');
+L.marker([56.879635,24.603189],{icon:new LeafIcon({iconUrl:'images/lv.png'})}).addTo(map).bindPopup('Latvia');
+L.marker([26.3351,17.228331],{icon:new LeafIcon({iconUrl:'images/ly.png'})}).addTo(map).bindPopup('Libya');
+L.marker([31.791702,-7.09262],{icon:new LeafIcon({iconUrl:'images/ma.png'})}).addTo(map).bindPopup('Morocco');
+L.marker([43.750298,7.412841],{icon:new LeafIcon({iconUrl:'images/mc.png'})}).addTo(map).bindPopup('Monaco');
+L.marker([47.411631,28.369885],{icon:new LeafIcon({iconUrl:'images/md.png'})}).addTo(map).bindPopup('Moldova');
+L.marker([42.708678,19.37439],{icon:new LeafIcon({iconUrl:'images/me.png'})}).addTo(map).bindPopup('Montenegro');
+L.marker([-18.766947,46.869107],{icon:new LeafIcon({iconUrl:'images/mg.png'})}).addTo(map).bindPopup('Madagascar');
+L.marker([7.131474,171.184478],{icon:new LeafIcon({iconUrl:'images/mh.png'})}).addTo(map).bindPopup('Marshall Islands');
+L.marker([41.608635,21.745275],{icon:new LeafIcon({iconUrl:'images/mk.png'})}).addTo(map).bindPopup('Macedonia [FYROM]');
+L.marker([17.570692,-3.996166],{icon:new LeafIcon({iconUrl:'images/ml.png'})}).addTo(map).bindPopup('Mali');
+L.marker([21.913965,95.956223],{icon:new LeafIcon({iconUrl:'images/mm.png'})}).addTo(map).bindPopup('Myanmar [Burma]');
+L.marker([46.862496,103.846656],{icon:new LeafIcon({iconUrl:'images/mn.png'})}).addTo(map).bindPopup('Mongolia');
+L.marker([22.198745,113.543873],{icon:new LeafIcon({iconUrl:'images/mo.png'})}).addTo(map).bindPopup('Macau');
+L.marker([17.33083,145.38469],{icon:new LeafIcon({iconUrl:'images/mp.png'})}).addTo(map).bindPopup('Northern Mariana Islands');
+L.marker([14.641528,-61.024174],{icon:new LeafIcon({iconUrl:'images/mq.png'})}).addTo(map).bindPopup('Martinique');
+L.marker([21.00789,-10.940835],{icon:new LeafIcon({iconUrl:'images/mr.png'})}).addTo(map).bindPopup('Mauritania');
+L.marker([16.742498,-62.187366],{icon:new LeafIcon({iconUrl:'images/ms.png'})}).addTo(map).bindPopup('Montserrat');
+L.marker([35.937496,14.375416],{icon:new LeafIcon({iconUrl:'images/mt.png'})}).addTo(map).bindPopup('Malta');
+L.marker([-20.348404,57.552152],{icon:new LeafIcon({iconUrl:'images/mu.png'})}).addTo(map).bindPopup('Mauritius');
+L.marker([3.202778,73.22068],{icon:new LeafIcon({iconUrl:'images/mv.png'})}).addTo(map).bindPopup('Maldives');
+L.marker([-13.254308,34.301525],{icon:new LeafIcon({iconUrl:'images/mw.png'})}).addTo(map).bindPopup('Malawi');
+L.marker([23.634501,-102.552784],{icon:new LeafIcon({iconUrl:'images/mx.png'})}).addTo(map).bindPopup('Mexico');
+L.marker([4.210484,101.975766],{icon:new LeafIcon({iconUrl:'images/my.png'})}).addTo(map).bindPopup('Malaysia');
+L.marker([-18.665695,35.529562],{icon:new LeafIcon({iconUrl:'images/mz.png'})}).addTo(map).bindPopup('Mozambique');
+L.marker([-22.95764,18.49041],{icon:new LeafIcon({iconUrl:'images/na.png'})}).addTo(map).bindPopup('Namibia');
+L.marker([-20.904305,165.618042],{icon:new LeafIcon({iconUrl:'images/nc.png'})}).addTo(map).bindPopup('New Caledonia');
+L.marker([17.607789,8.081666],{icon:new LeafIcon({iconUrl:'images/ne.png'})}).addTo(map).bindPopup('Niger');
+L.marker([-29.040835,167.954712],{icon:new LeafIcon({iconUrl:'images/nf.png'})}).addTo(map).bindPopup('Norfolk Island');
+L.marker([9.081999,8.675277],{icon:new LeafIcon({iconUrl:'images/ng.png'})}).addTo(map).bindPopup('Nigeria');
+L.marker([12.865416,-85.207229],{icon:new LeafIcon({iconUrl:'images/ni.png'})}).addTo(map).bindPopup('Nicaragua');
+L.marker([52.132633,5.291266],{icon:new LeafIcon({iconUrl:'images/nl.png'})}).addTo(map).bindPopup('Netherlands');
+L.marker([60.472024,8.468946],{icon:new LeafIcon({iconUrl:'images/no.png'})}).addTo(map).bindPopup('Norway');
+L.marker([28.394857,84.124008],{icon:new LeafIcon({iconUrl:'images/np.png'})}).addTo(map).bindPopup('Nepal');
+L.marker([-0.522778,166.931503],{icon:new LeafIcon({iconUrl:'images/nr.png'})}).addTo(map).bindPopup('Nauru');
+L.marker([-19.054445,-169.867233],{icon:new LeafIcon({iconUrl:'images/nu.png'})}).addTo(map).bindPopup('Niue');
+L.marker([-40.900557,174.885971],{icon:new LeafIcon({iconUrl:'images/nz.png'})}).addTo(map).bindPopup('New Zealand');
+L.marker([21.512583,55.923255],{icon:new LeafIcon({iconUrl:'images/om.png'})}).addTo(map).bindPopup('Oman');
+L.marker([8.537981,-80.782127],{icon:new LeafIcon({iconUrl:'images/pa.png'})}).addTo(map).bindPopup('Panama');
+L.marker([-9.189967,-75.015152],{icon:new LeafIcon({iconUrl:'images/pe.png'})}).addTo(map).bindPopup('Peru');
+L.marker([-17.679742,-149.406843],{icon:new LeafIcon({iconUrl:'images/pf.png'})}).addTo(map).bindPopup('French Polynesia');
+L.marker([-6.314993,143.95555],{icon:new LeafIcon({iconUrl:'images/pg.png'})}).addTo(map).bindPopup('Papua New Guinea');
+L.marker([12.879721,121.774017],{icon:new LeafIcon({iconUrl:'images/ph.png'})}).addTo(map).bindPopup('Philippines');
+L.marker([30.375321,69.345116],{icon:new LeafIcon({iconUrl:'images/pk.png'})}).addTo(map).bindPopup('Pakistan');
+L.marker([51.919438,19.145136],{icon:new LeafIcon({iconUrl:'images/pl.png'})}).addTo(map).bindPopup('Poland');
+L.marker([46.941936,-56.27111],{icon:new LeafIcon({iconUrl:'images/pm.png'})}).addTo(map).bindPopup('Saint Pierre and Miquelon');
+L.marker([-24.703615,-127.439308],{icon:new LeafIcon({iconUrl:'images/pn.png'})}).addTo(map).bindPopup('Pitcairn Islands');
+L.marker([18.220833,-66.590149],{icon:new LeafIcon({iconUrl:'images/pr.png'})}).addTo(map).bindPopup('Puerto Rico');
+L.marker([31.952162,35.233154],{icon:new LeafIcon({iconUrl:'images/ps.png'})}).addTo(map).bindPopup('Palestinian Territories');
+L.marker([39.399872,-8.224454],{icon:new LeafIcon({iconUrl:'images/pt.png'})}).addTo(map).bindPopup('Portugal');
+L.marker([7.51498,134.58252],{icon:new LeafIcon({iconUrl:'images/pw.png'})}).addTo(map).bindPopup('Palau');
+L.marker([-23.442503,-58.443832],{icon:new LeafIcon({iconUrl:'images/py.png'})}).addTo(map).bindPopup('Paraguay');
+L.marker([25.354826,51.183884],{icon:new LeafIcon({iconUrl:'images/qa.png'})}).addTo(map).bindPopup('Qatar');
+L.marker([-21.115141,55.536384],{icon:new LeafIcon({iconUrl:'images/re.png'})}).addTo(map).bindPopup('Réunion');
+L.marker([45.943161,24.96676],{icon:new LeafIcon({iconUrl:'images/ro.png'})}).addTo(map).bindPopup('Romania');
+L.marker([44.016521,21.005859],{icon:new LeafIcon({iconUrl:'images/rs.png'})}).addTo(map).bindPopup('Serbia');
+L.marker([61.52401,105.318756],{icon:new LeafIcon({iconUrl:'images/ru.png'})}).addTo(map).bindPopup('Russia');
+L.marker([-1.940278,29.873888],{icon:new LeafIcon({iconUrl:'images/rw.png'})}).addTo(map).bindPopup('Rwanda');
+L.marker([23.885942,45.079162],{icon:new LeafIcon({iconUrl:'images/sa.png'})}).addTo(map).bindPopup('Saudi Arabia');
+L.marker([-9.64571,160.156194],{icon:new LeafIcon({iconUrl:'images/sb.png'})}).addTo(map).bindPopup('Solomon Islands');
+L.marker([-4.679574,55.491977],{icon:new LeafIcon({iconUrl:'images/sc.png'})}).addTo(map).bindPopup('Seychelles');
+L.marker([12.862807,30.217636],{icon:new LeafIcon({iconUrl:'images/sd.png'})}).addTo(map).bindPopup('Sudan');
+L.marker([60.128161,18.643501],{icon:new LeafIcon({iconUrl:'images/se.png'})}).addTo(map).bindPopup('Sweden');
+L.marker([1.352083,103.819836],{icon:new LeafIcon({iconUrl:'images/sg.png'})}).addTo(map).bindPopup('Singapore');
+L.marker([-24.143474,-10.030696],{icon:new LeafIcon({iconUrl:'images/sh.png'})}).addTo(map).bindPopup('Saint Helena');
+L.marker([46.151241,14.995463],{icon:new LeafIcon({iconUrl:'images/si.png'})}).addTo(map).bindPopup('Slovenia');
+L.marker([77.553604,23.670272],{icon:new LeafIcon({iconUrl:'images/sj.png'})}).addTo(map).bindPopup('Svalbard and Jan Mayen');
+L.marker([48.669026,19.699024],{icon:new LeafIcon({iconUrl:'images/sk.png'})}).addTo(map).bindPopup('Slovakia');
+L.marker([8.460555,-11.779889],{icon:new LeafIcon({iconUrl:'images/sl.png'})}).addTo(map).bindPopup('Sierra Leone');
+L.marker([43.94236,12.457777],{icon:new LeafIcon({iconUrl:'images/sm.png'})}).addTo(map).bindPopup('San Marino');
+L.marker([14.497401,-14.452362],{icon:new LeafIcon({iconUrl:'images/sn.png'})}).addTo(map).bindPopup('Senegal');
+L.marker([5.152149,46.199616],{icon:new LeafIcon({iconUrl:'images/so.png'})}).addTo(map).bindPopup('Somalia');
+L.marker([3.919305,-56.027783],{icon:new LeafIcon({iconUrl:'images/sr.png'})}).addTo(map).bindPopup('Suriname');
+L.marker([0.18636,6.613081],{icon:new LeafIcon({iconUrl:'images/st.png'})}).addTo(map).bindPopup('São Tomé and Príncipe');
+L.marker([13.794185,-88.89653],{icon:new LeafIcon({iconUrl:'images/sv.png'})}).addTo(map).bindPopup('El Salvador');
+L.marker([34.802075,38.996815],{icon:new LeafIcon({iconUrl:'images/sy.png'})}).addTo(map).bindPopup('Syria');
+L.marker([-26.522503,31.465866],{icon:new LeafIcon({iconUrl:'images/sz.png'})}).addTo(map).bindPopup('Swaziland');
+L.marker([21.694025,-71.797928],{icon:new LeafIcon({iconUrl:'images/tc.png'})}).addTo(map).bindPopup('Turks and Caicos Islands');
+L.marker([15.454166,18.732207],{icon:new LeafIcon({iconUrl:'images/td.png'})}).addTo(map).bindPopup('Chad');
+L.marker([-49.280366,69.348557],{icon:new LeafIcon({iconUrl:'images/tf.png'})}).addTo(map).bindPopup('French Southern Territories');
+L.marker([8.619543,0.824782],{icon:new LeafIcon({iconUrl:'images/tg.png'})}).addTo(map).bindPopup('Togo');
+L.marker([15.870032,100.992541],{icon:new LeafIcon({iconUrl:'images/th.png'})}).addTo(map).bindPopup('Thailand');
+L.marker([38.861034,71.276093],{icon:new LeafIcon({iconUrl:'images/tj.png'})}).addTo(map).bindPopup('Tajikistan');
+L.marker([-8.967363,-171.855881],{icon:new LeafIcon({iconUrl:'images/tk.png'})}).addTo(map).bindPopup('Tokelau');
+L.marker([-8.874217,125.727539],{icon:new LeafIcon({iconUrl:'images/tl.png'})}).addTo(map).bindPopup('Timor-Leste');
+L.marker([38.969719,59.556278],{icon:new LeafIcon({iconUrl:'images/tm.png'})}).addTo(map).bindPopup('Turkmenistan');
+L.marker([33.886917,9.537499],{icon:new LeafIcon({iconUrl:'images/tn.png'})}).addTo(map).bindPopup('Tunisia');
+L.marker([-21.178986,-175.198242],{icon:new LeafIcon({iconUrl:'images/to.png'})}).addTo(map).bindPopup('Tonga');
+L.marker([38.963745,35.243322],{icon:new LeafIcon({iconUrl:'images/tr.png'})}).addTo(map).bindPopup('Turkey');
+L.marker([10.691803,-61.222503],{icon:new LeafIcon({iconUrl:'images/tt.png'})}).addTo(map).bindPopup('Trinidad and Tobago');
+L.marker([-7.109535,177.64933],{icon:new LeafIcon({iconUrl:'images/tv.png'})}).addTo(map).bindPopup('Tuvalu');
+L.marker([23.69781,120.960515],{icon:new LeafIcon({iconUrl:'images/tw.png'})}).addTo(map).bindPopup('Taiwan');
+L.marker([-6.369028,34.888822],{icon:new LeafIcon({iconUrl:'images/tz.png'})}).addTo(map).bindPopup('Tanzania');
+L.marker([48.379433,31.16558],{icon:new LeafIcon({iconUrl:'images/ua.png'})}).addTo(map).bindPopup('Ukraine');
+L.marker([1.373333,32.290275],{icon:new LeafIcon({iconUrl:'images/ug.png'})}).addTo(map).bindPopup('Uganda');
+L.marker([37.09024,-95.712891],{icon:new LeafIcon({iconUrl:'images/us.png'})}).addTo(map).bindPopup('United States');
+L.marker([-32.522779,-55.765835],{icon:new LeafIcon({iconUrl:'images/uy.png'})}).addTo(map).bindPopup('Uruguay');
+L.marker([41.377491,64.585262],{icon:new LeafIcon({iconUrl:'images/uz.png'})}).addTo(map).bindPopup('Uzbekistan');
+L.marker([41.902916,12.453389],{icon:new LeafIcon({iconUrl:'images/va.png'})}).addTo(map).bindPopup('Vatican City');
+L.marker([12.984305,-61.287228],{icon:new LeafIcon({iconUrl:'images/vc.png'})}).addTo(map).bindPopup('Saint Vincent and the Grenadines');
+L.marker([6.42375,-66.58973],{icon:new LeafIcon({iconUrl:'images/ve.png'})}).addTo(map).bindPopup('Venezuela');
+L.marker([18.420695,-64.639968],{icon:new LeafIcon({iconUrl:'images/vg.png'})}).addTo(map).bindPopup('British Virgin Islands');
+L.marker([18.335765,-64.896335],{icon:new LeafIcon({iconUrl:'images/vi.png'})}).addTo(map).bindPopup('U.S. Virgin Islands');
+L.marker([14.058324,108.277199],{icon:new LeafIcon({iconUrl:'images/vn.png'})}).addTo(map).bindPopup('Vietnam');
+L.marker([-15.376706,166.959158],{icon:new LeafIcon({iconUrl:'images/vu.png'})}).addTo(map).bindPopup('Vanuatu');
+L.marker([-13.768752,-177.156097],{icon:new LeafIcon({iconUrl:'images/wf.png'})}).addTo(map).bindPopup('Wallis and Futuna');
+L.marker([-13.759029,-172.104629],{icon:new LeafIcon({iconUrl:'images/ws.png'})}).addTo(map).bindPopup('Samoa');
+L.marker([42.602636,20.902977],{icon:new LeafIcon({iconUrl:'images/xk.png'})}).addTo(map).bindPopup('Kosovo');
+L.marker([15.552727,48.516388],{icon:new LeafIcon({iconUrl:'images/ye.png'})}).addTo(map).bindPopup('Yemen');
+L.marker([-12.8275,45.166244],{icon:new LeafIcon({iconUrl:'images/yt.png'})}).addTo(map).bindPopup('Mayotte');
+L.marker([-30.559482,22.937506],{icon:new LeafIcon({iconUrl:'images/za.png'})}).addTo(map).bindPopup('South Africa');
+L.marker([-13.133897,27.849332],{icon:new LeafIcon({iconUrl:'images/zm.png'})}).addTo(map).bindPopup('Zambia');
+L.marker([-19.015438,29.154857],{icon:new LeafIcon({iconUrl:'images/zw.png'})}).addTo(map).bindPopup('Zimbabwe');
+L.marker([,],{icon:new LeafIcon({iconUrl:'images/.png'})}).addTo(map).bindPopup('');
+
+</script>
+© Copyright 2021 
+                        <br>
+                        資科四A 蕭煒霖 410706026
+ </body>
+</html>
